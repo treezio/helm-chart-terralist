@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "terralist.fullname" . }}-terralist-pdb
+  labels:
+  {{- include "terralist.labels" . | nindent 4 }}
+spec:
+  minAvailable: {{ .Values.Pdb.minAvailable }}
+  maxUnavailable: {{ .Values.Pdb.maxUnavailable }}
+  selector:
+    matchLabels:
+      app: terralist
+    {{- include "terralist.selectorLabels" . | nindent 6 }}
