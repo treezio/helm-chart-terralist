@@ -1,0 +1,55 @@
+---
+name: Bump Terralist version
+
+pipelineid: "terralist"
+
+scms:
+  default:
+    kind: github
+    spec:
+      user: "{{ .github.user }}"
+      email: "{{ .github.email }}"
+      owner: "{{ .github.owner }}"
+      repository: "{{ .github.repository }}"
+      token: "{{ requiredEnv .github.token }}"
+      username: "{{ .github.username }}"
+      branch: "{{ .github.branch }}"
+
+sources:
+  latestVersion:
+    kind: githubrelease
+    name: Get the latest Terralist version
+    spec:
+      owner: terralist
+      repository: terralist
+      token: "{{ requiredEnv .github.token }}"
+      username: "{{ .github.username }}"
+      versionfilter:
+        kind: semver
+
+conditions:
+  IsDockerImagePublished:
+    name: Check Terralist {{ source "latestVersion" }} docker image tag exists in DockerHub
+    kind: dockerimage
+    spec:
+      image: ghcr.io/terralist/terralist
+      architecture: amd64
+
+targets:
+  imageTag:
+    name: Update Docker Image tag for Terralist to {{ source "latestVersion" }} version
+    kind: yaml
+    spec:
+      file: charts/terralist/Chart.yaml
+      key: $.appVersion
+    scmid: default
+
+actions:
+  default:
+    kind: github/pullrequest
+    scmid: default
+    title: Bump Terralist AppVersion to {{ source "latestVersion" }}
+    spec:
+      labels:
+        - dependencies
+        - appversion
