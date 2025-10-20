@@ -1,7 +1,7 @@
 apiVersion: v2
 name: terralist
 type: application
-version: 0.0.1
+version: 0.8.0
 description: A Helm chart to deploy Terralist on Kubernetes
 appVersion: v0.8.0
 home: https://www.terralist.io/
