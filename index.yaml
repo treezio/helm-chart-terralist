@@ -3,6 +3,19 @@ entries:
   terralist:
   - apiVersion: v2
     appVersion: v0.8.0
+    created: "2025-10-20T14:59:30.692827878Z"
+    description: A Helm chart to deploy Terralist on Kubernetes
+    digest: 9479cd2f6aeb94648b4a374d47bdf2282cc5c30ce45b9c245cbacb430e00861a
+    home: https://www.terralist.io/
+    name: terralist
+    sources:
+    - https://github.com/terralist/terralist/
+    type: application
+    urls:
+    - https://github.com/treezio/helm-chart-terralist/releases/download/terralist-0.8.0/terralist-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v2
+    appVersion: v0.8.0
     created: "2025-09-18T15:45:09.025007281Z"
     description: A Helm chart to deploy Terralist on Kubernetes
     digest: 04d491e4f445449a394c82f3ed69d4e51e5e7a7adc0d580f175d8afb42463836
@@ -14,4 +27,4 @@ entries:
     urls:
     - https://github.com/treezio/helm-chart-terralist/releases/download/terralist-0.0.1/terralist-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-18T15:45:09.025013633Z"
+generated: "2025-10-20T14:59:30.692834059Z"
