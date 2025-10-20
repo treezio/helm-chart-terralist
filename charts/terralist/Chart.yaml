@@ -3,7 +3,7 @@ name: terralist
 type: application
 version: 0.0.1
 description: A Helm chart to deploy Terralist on Kubernetes
-appVersion: v0.8.0
+appVersion: v0.9.0
 home: https://www.terralist.io/
 sources:
 - https://github.com/terralist/terralist/
